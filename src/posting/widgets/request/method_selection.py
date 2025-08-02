@@ -32,6 +32,8 @@ The dropdown does not need to be expanded in order to select a method.
         Binding("d", "select_method('DELETE')", "DELETE", show=False),
         Binding("o", "select_method('OPTIONS')", "OPTIONS", show=False),
         Binding("h", "select_method('HEAD')", "HEAD", show=False),
+        # Binding("j", "action_cursor_down()", "Cursor Down", show=False),
+        # Binding("k", "action_cursor_up()", "Cursor Up", show=False),
     ]
 
     def __init__(
@@ -58,12 +60,14 @@ The dropdown does not need to be expanded in order to select a method.
             prompt=prompt,
             allow_blank=False,
             value=value,
+            type_to_search=True,
             name=name,
             id=id,
             classes=classes,
             disabled=disabled,
             tooltip=tooltip,
         )
+        self.current_index = 0  # Track the current index
 
     @dataclass
     class MethodChanged(Message):
@@ -84,3 +88,12 @@ The dropdown does not need to be expanded in order to select a method.
 
     def action_select_method(self, method: str) -> None:
         self.value = method
+
+    # def action_cursor_up(self) -> None:
+    #     self.value = 'DELETE'
+    #
+    # def action_cursor_down(self) -> None:
+    #     if self.current_index < len(self.options) - 1:
+    #         self.current_index += 1
+    #         self.value = self.options[self.current_index][1]  # Update the selected value
+    #         self.refresh()  # Refresh the display if necessary

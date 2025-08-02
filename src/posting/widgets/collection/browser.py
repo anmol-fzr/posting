@@ -64,26 +64,26 @@ Sub-collections cannot be deleted from the UI yet.
             "Dupe",
             tooltip="Duplicate the request under the cursor and show the 'New Request' modal to change the name/description.",
         ),
+        # Binding(
+        #     "D",
+        #     "quick_duplicate_request",
+        #     "Quick Dupe",
+        #     show=False,
+        #     tooltip="Duplicate the request and automatically assign a unique name.",
+        # ),
         Binding(
             "D",
-            "quick_duplicate_request",
-            "Quick Dupe",
-            show=False,
-            tooltip="Duplicate the request and automatically assign a unique name.",
-        ),
-        Binding(
-            "backspace",
-            "delete_request_with_confirmation",
+            "delete_request",
             "Delete",
             tooltip="Delete the request under the cursor.",
         ),
-        Binding(
-            "shift+backspace",
-            "delete_request",
-            "Delete",
-            show=False,
-            tooltip="Delete the collection under the cursor.",
-        ),
+        # Binding(
+        #     "shift+backspace",
+        #     "delete_request",
+        #     "Delete",
+        #     show=False,
+        #     tooltip="Delete the collection under the cursor.",
+        # ),
     ]
 
     COMPONENT_CLASSES = {

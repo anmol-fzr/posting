@@ -107,7 +107,7 @@ class MainScreen(Screen[None]):
     BINDING_GROUP_TITLE = "Main Screen"
     BINDINGS = [
         Binding(
-            "ctrl+j,alt+enter",
+            "ctrl+enter",
             "send_request",
             "Send",
             tooltip="Send the current request.",
@@ -136,14 +136,15 @@ class MainScreen(Screen[None]):
             id="focus-url",
         ),
         Binding(
-            "ctrl+s",
+            "s,ctrl+s",
+            #"ctrl+s",
             "save_request",
             "Save",
             tooltip="Save the current request. If a request is open, this will overwrite it.",
             id="save-request",
         ),
         Binding(
-            "ctrl+n",
+            "n",
             "new_request",
             "New",
             tooltip="Create a new request.",
@@ -158,15 +159,15 @@ class MainScreen(Screen[None]):
             id="expand-section",
         ),
         Binding(
-            "ctrl+h",
+            "ctrl+b",
             "toggle_collection_browser",
             "Toggle collection browser",
-            show=False,
+            show=True,
             tooltip="Toggle the collection browser.",
             id="toggle-collection",
         ),
         Binding(
-            "ctrl+P,ctrl+shift+p",
+            "/",
             "open_request_search_palette",
             "Search requests",
             show=True,
@@ -1015,6 +1016,15 @@ class Posting(App[None], inherit_bindings=False):
         ),
         Binding(
             "ctrl+c",
+            "app.quit",
+            description="Quit",
+            tooltip="Quit the application.",
+            priority=True,
+            id="quit",
+            show=False
+        ),
+        Binding(
+            "q",
             "app.quit",
             description="Quit",
             tooltip="Quit the application.",
